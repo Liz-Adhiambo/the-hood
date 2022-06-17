@@ -1,0 +1,3 @@
+hood-venv/
+*pyc
+thehood_project/settings.py
