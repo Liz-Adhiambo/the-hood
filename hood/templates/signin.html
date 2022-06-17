@@ -1,0 +1,74 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{%block content%}
+
+                
+<div class="container" id='home-nav'>
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom ">
+    <p><a href="#" class="nav-link px-2 link-dark"><span class='logo'>L-</span>Awwards</a></p>
+
+  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    <li><a href="{% url 'index' %}" class="nav-link px-2 link-dark">Home</a></li>
+    <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+    <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+    <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+    <li><a href="{% url 'index' %}" class="nav-link px-2 link-dark">About</a></li>
+  </ul>
+
+  <div class="col-md-3 text-end">
+    <a href={% url 'signin' %}><button type="button" class="btn btn-outline me-2">Login</button></a>
+    <a href={% url 'signup' %}><button type="button" class="btn btn-outline me-2">Sign Up</button></a>
+  </div>
+</header>
+</div>
+           
+
+<div>
+    <style>
+        h5{
+            color: red;
+        }
+    </style>
+    {% for message in messages %}
+    <h5>{{message}}</h5>
+    {% endfor %}
+</div>
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <img src={%static 'images/Image1.jpg'%} style="height:90%; width:90%;">
+        </div>
+        <div class="col-md">
+            <div class='container'>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    
+                    <input type="text" name="username" placeholder="Username" class="form-control" style="border: 1px solid #d3d5d8 !important;">
+                    <br>
+                    
+                    <input type="password" name="password" placeholder="Password" class="form-control">
+                    <br>
+                    
+                    
+                    <button type="submit" class="btn btn-outline-dark btn-lg" style='height: 50px; width:500px'>Log In</button>
+                    <div class="text-center mt-5 space-x-2">
+                        <p class="text-base"> Not registered? <a href="/signup" class=""> Create a account </a></p>
+                    </div>
+                </form>
+                <br>
+            </div>
+                
+                
+        </div>
+        
+    </div>
+
+        
+</div>
+<br><br><br><br><br><br><br>
+{%endblock content%}
+   
+
