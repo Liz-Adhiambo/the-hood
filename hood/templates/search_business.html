@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block content %}
+
+{%include 'navbar.html'%}
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-caption">
+                    <h1 class="page-title">These are the Businesses Available in Your Neigborhood</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.page-header-->
+<!-- news -->
+<div class="card-section">
+    <div class="container">
+        <div class="card-block bg-white mb30">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <!-- section-title -->
+                    <div class="section-title mb-0">
+                        {%if searched%}
+                        <h2>You searched for {{searched}}</h2>
+                        {%else%}
+                        <h2>You forgot to search for a business</h2>
+
+                        {%endif%}
+                        
+                    </div>
+                    <!-- /.section-title -->
+                </div>
+            </div>
+        </div>
+        
+        </div>
+        </div>
+        </div>
+
+
+ 
+
+
+<div class="container">
+    <div class="row align-items-start">
+        {% for business in businesses reversed %}  
+      <div class="col-md-4  containerb">
+        
+        
+            <div class="cardb">
+              <div class="imageBX">
+                <img src="{{business.bs_image.url}}">
+              </div>
+              <div class="contentBx">
+                    <h2>{{ business.name }}</h2>
+                    <div class="size text-white">
+                    
+                    <span>phone <i class="fa fa-phone-square" aria-hidden="true"></i> {{business.phone}}</span><br>
+                    <span>days open <i class="fa fa-clock" aria-hidden="true"></i> {{business.start_day}}-{{business.end_day}}, {{ business.open_time }}
+                        - {{ business.close_time }}</span>
+                    
+                    </div>
+                   
+                </div>
+              
+           
+        </div>
+        
+          
+      </div>
+      {%endfor%}
+</div>
+
+{%endblock content%}
