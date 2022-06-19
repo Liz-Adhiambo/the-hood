@@ -2,8 +2,9 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from.models import Profile
+from . import models
 from django.contrib.auth.decorators import login_required
-
+from .forms import NewPostForm, NewBusinessForm, EditProfileForm, ChangeNeighborhoodForm
 # Create your views here.
 
 
@@ -58,7 +59,7 @@ def signin(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('projects')
+            return redirect('/')
         else:
             messages.info(request, 'Credentials Invalid')
             return redirect('signin')
@@ -72,3 +73,96 @@ def logout(request):
     auth.logout(request)
     return redirect('signin')
 
+
+def feed(request):
+    current_user = request.user.profile
+    posts = models.Post.objects.filter(hood=current_user.neighborhood)
+
+    if request.method == 'POST':
+        new_post_form = NewPostForm(request.POST)
+        if new_post_form.is_valid():
+            new_post_form.instance.user = current_user
+            new_post_form.instance.hood = current_user.neighborhood
+            new_post_form.save()
+
+            return redirect('feed')
+    else:
+        new_post_form = NewPostForm()
+
+    title = 'Feed'
+    context = {
+        'title': title,
+        'posts': posts,
+        'new_post_form': new_post_form,
+    }
+
+    return render(request, 'feed.html',context)
+
+def businesses(request):
+    current_user = request.user.profile
+
+    if request.method == 'POST':
+        new_business_form = NewBusinessForm(request.POST)
+        if new_business_form.is_valid():
+            new_business_form.instance.user = current_user
+            new_business_form.instance.neighborhood = current_user.neighborhood
+            new_business_form.save()
+
+            return redirect('businesses')
+    else:
+        new_business_form = NewBusinessForm()
+
+    businesses = models.Business.objects.filter(neighborhood=current_user.neighborhood)
+
+    title = 'Businesses'
+    context = {
+        'title': title,
+        'businesses':businesses,
+        'new_business_form':new_business_form,
+    }
+
+    return render(request, 'business.html', context)
+
+
+def neighborhood(request):
+
+    current_user = request.user
+    neighborhood = current_user.profile.neighborhood
+
+    
+    
+    title = 'Neighborhood'
+    context = {
+        'title': title,
+        'neighborhood': neighborhood,
+    }
+
+    return render(request, 'hood.html', context)
+
+def profile(request):
+
+    if request.method == 'POST':
+        edit_profile_form = EditProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        change_neighborhood_form = ChangeNeighborhoodForm(request.POST, request.FILES, instance=request.user.profile)
+        if edit_profile_form.is_valid():
+            edit_profile_form.instance.user = request.user
+            edit_profile_form.save()
+
+            redirect('profile')
+        elif change_neighborhood_form.is_valid():
+            change_neighborhood_form.save()
+
+            redirect('profile')
+
+    else:
+        edit_profile_form = EditProfileForm()
+        change_neighborhood_form = ChangeNeighborhoodForm()
+
+    title = 'Profile'
+    context = {
+        'title': title,
+        'edit_profile_form': edit_profile_form,
+        'change_neighborhood_form':change_neighborhood_form,
+    }
+
+    return render(request, 'profile.html', context)
