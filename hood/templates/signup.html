@@ -4,13 +4,10 @@
 {%block content%}
 <div class="container" id='home-nav'>
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom ">
-        <p><a href="#" class="nav-link px-2 link-dark"><span class='logo'>L-</span>Awwards</a></p>
+        <p><a href="#" class="nav-link px-2 link-dark"><span class='logo'>The</span>HOOD</a></p>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="{% url 'index' %}" class="nav-link px-2 link-dark">Home</a></li>
-        <li><a href="{% url 'index' %}" class="nav-link px-2 link-dark">Features</a></li>
-        <li><a href="{% url 'index' %}" class="nav-link px-2 link-dark">Pricing</a></li>
-        <li><a href="{% url 'index' %}" class="nav-link px-2 link-dark">FAQs</a></li>
         <li><a href="{% url 'index' %}" class="nav-link px-2 link-dark">About</a></li>
       </ul>
 
@@ -27,19 +24,19 @@
     <div>
         <div>
             <style>
-                h5{
+                h4{
                     color: red;
                 }
             </style>
             {% for message in messages %}
-            <h5>{{message}}</h5>
+            <h4>{{message}}</h4>
             {% endfor %}
         </div>
 
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-               <img src={%static 'images/Image1r.jpg'%} style="height:90%; width:90%;">
+               <img src={%static 'images/image1.jpg'%} style="height:90%; width:90%;">
             </div>
             <div class="col-md-6">
                 <div class="container">
