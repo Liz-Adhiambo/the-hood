@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-caption">
-                    <h1 class="page-title">Your Feed</h1>
+                    <h1 class="page-title text-white">Your Feed</h1>
                 </div>
             </div>
         </div>
@@ -77,10 +77,12 @@
    <div class="h1">{{ post.title }}</div>
       <p>{{ post.post }}</p>
       
-      <div class="profile-name mx-2 text-dark">{{ post.user.user.username}} {{ post.user.user.last_name}}
+      <div class="container  text-dark">
         <img src="{{ post.user.profile_image.url }}" alt="" class="img-fluid img-responsive"style='width:50px'>
+        <h5>~ {{ post.user.user.username}} {{ post.user.user.last_name}}<h5>
+        <small class="post-date text-dark">{{ post.date | timesince }} ago</small>
       </div>
-      <small class="post-date text-dark">{{ post.date | timesince }} ago</small>
+      
     </div>
     
     
