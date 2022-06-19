@@ -5,14 +5,48 @@
 {% block content %}
 
 {%include 'navbar.html'%}
- <div  class=" container ">
-    {{user.profile.neighborhood.name}}
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-caption">
+                    <h1 class="page-title">These are the Businesses Available in Your Neigborhood</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<!-- /.page-header-->
+<!-- news -->
+<div class="card-section">
+    <div class="container">
+        <div class="card-block bg-white mb30">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <!-- section-title -->
+                    <div class="section-title mb-0">
+                        <h2>Welcome to {{user.profile.neighborhood.name}} Businesses</h2>
+                        <a id="newPostBtn" class="btn btn-outline-dark" href="#" role="button" data-bs-toggle="modal"
+                            data-bs-target="#newPostModal"><i class="fa fa-pencil"
+                                aria-hidden="true"></i> Add New Business</a>
+                    </div>
+                    <!-- /.section-title -->
+                </div>
+            </div>
+        </div>
+        
+        </div>
+        </div>
+        </div>
+
+
+ 
+
 
 <div class="container">
     <div class="row align-items-start">
-        {% for business in businesses %}  
-      <div class="col-md-6  containerb">
+        {% for business in businesses reversed %}  
+      <div class="col-md-4  containerb">
         
         
             <div class="cardb">
@@ -42,10 +76,7 @@
 
 
    
-    <a id="newPostBtn" class="btn btn-outline-dark" href="#" role="button" data-bs-toggle="modal"
-        data-bs-target="#newPostModal"><i class="fa fa-pencil"
-            aria-hidden="true"></i> Add New Business</a>
-
+   
     <!-- Modal -->
     <form id="newPostForm" action="{%url 'businesses'%}" method="POST" enctype="multipart/form-data">
         <div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
