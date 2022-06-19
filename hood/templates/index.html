@@ -1,44 +1,71 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content%}
-<div class="container" id='home-nav'>
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom ">
-        <p><a href="#" class="nav-link px-2 link-dark"><span class='logo'>The</span>hood</a></p>
 
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-dark">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
-      </ul>
+  <div class="row">
+    <div class="col-md-12">
+      <header class="header">
+        <div class="brand-box">
+          <span  >The-H00d</span>
+        </div>
+        
+        <div class="text-box">
+          <h1 class="heading-primary">
+            <span class="heading-primary-main">Welcome to The-H00d</span>
+            <span class="heading-primary-sub">We value your community</span>
+          </h1>
+          <a href="{% url 'signin' %}" class="btn btn-white btn-animated">Get to know your hood</a>
+        </div>
+      </header>
+    
+      
+    </div>
+    
+    
+  </div>
 
-      <div class="col-md-3 text-end">
-        <a href={% url 'signin' %}><button type="button" class="btn btn-outline me-2">Login</button></a>
-        <a href={% url 'signup' %}><button type="button" class="btn btn-outline me-2">Sign Up</button></a>
+
+  
+  <div class=body>
+    <div class="headerh">
+      <h1>About Us</h1>
+      <h1>Powered by Django</h1>
+  
+      <p>Our Application gives you relevant news about your neighbourhood to ensure you are up to date
+        </p>
+    </div>
+    <div class="row1-container">
+      <div class="box box-down cyan">
+        <h2>Bussinesses near you</h2>
+        <p>Monitors activity to identify project roadblocks</p>
+        <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt="">
       </div>
-    </header>
+  
+      <div class="box red">
+        <h2>Your Feed</h2>
+        <p>Scans our talent network to create the optimal team for your project</p>
+        <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+      </div>
+  
+      <div class="box box-down blue">
+        <h2>Hospitals near you</h2>
+        <p>Uses data from past projects to provide better delivery estimates</p>
+        <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
+      </div>
+    </div>
+    <div class="row2-container">
+      <div class="box orange">
+        <h2>Police stations</h2>
+        <p>Regularly evaluates our talent to ensure quality</p>
+        <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="">
+      </div>
+    </div>
   </div>
-
-
-  <div class="container-fluid " id="h-page">
-        <div class='row'>
-            <div class='col'>
-                <img src={% static 'images/image2.jpg'%} alt='image' style='width:500px height:300px'>
-            </div>
-            <div class='col'>
-                <br>
-                <br>
-                <br>
-                <h1><span class='logo'>The</span>hood</h1>
-                <p>A project is complete when <br>it starts working for you <br>rather <br>than you working for it</p>
-                <small>~To view and add projects sign in!</small><br>
-                <a href={% url 'signin' %}><button type="button" class="btn btn-outline-dark mt-5"style='width: 200px;'>Check it out!</button></a>
-
-            </div>
-        </div>    
-
-  </div>
+  </b>
+  
+ 
+       
+  </ul>
   <br>
   <br>
   <br>
@@ -46,50 +73,7 @@
   <br>
 
 
-  <div class="container " id="h-page">
-    <h2>About Us</h2>
-    <div class='row'>
-        <div class='col'>
-            <div class="card text-dark"  id="about-cards">
-                <div class="card-body">Showcase Your projects with us</div>
-                <div class="card-body">
-                  
-                  <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-cloud-plus-fill" viewBox="0 0 16 16">
-                    <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm.5 4v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0z"/>
-                  </svg>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-        </div>
-        <div class='col'>
-            <div class="card   mb-3" id='about-card2'>
-                <div class="card-body">Vote for Projects</div>
-                <div class="card-body text-dark">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-shield-fill-check" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm2.146 5.146a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647z"/>
-                  </svg>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-
-        </div>
-        <div class='col'>
-            <div class="card   mb-3" id="about-cards">
-                <div class="card-body">View live Projects</div>
-                <div class="card-body">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-cursor-fill" viewBox="0 0 16 16">
-                    <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"/>
-                  </svg>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-        </div>
-    </div>    
-
-</div>
-
-<br>
-
+  
 
 
 
