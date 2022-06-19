@@ -8,18 +8,45 @@
 <main class="container" id="neighborhood">
     
     {% if neighborhood %}
-    <div class="card mt-3"> 
-        
-        
-        <div class="neighborhoodHeader py-2 px-3 text-dark">
-            <p >{{ neighborhood.name }} | {{ neighborhood.location }} </p>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-caption">
+                        <h1 class="page-title">{{ neighborhood.name }} | {{ neighborhood.location }}</h1>
+                        <div  class="m-3 text-dark">{{ neighborhood.description }}</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
         </div>
-        <div id="neighborhoodCover">
-            <img src="{{neighborhood.hood_pic.url}}" alt="Neighborhood Image" class="img-fluid" style="width:100px">
-        </div>
-        <div  class="m-3 text-dark">{{ neighborhood.description }}</div>
-        
     </div>
+    <!-- /.page-header-->
+    <!-- news -->
+    <div class="card-section">
+        <div class="container">
+            <div class="card-block bg-white mb30">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <!-- section-title -->
+                        <div class="section-title mb-0">
+                            <div id="neighborhoodCover">
+                                <img src="{{neighborhood.hood_pic.url}}" alt="Neighborhood Image" class="img-fluid" style="width:100px">
+                            </div>
+                            <h2>Welcome to {{user.profile.neighborhood.name}} Neigbourhood contacts</h2>
+                            <button id="newPostBtn" class="btn btn-outline-dark " role="button" data-bs-toggle="modal"
+                             data-bs-target="#newPostModal"><i class="fa fa-pencil" aria-hidden="true"></i> Add New Post</button>
+                        </div>
+                        <!-- /.section-title -->
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+            </div>
+            </div>
+    
     {%else%}
     <div class="alert alert-warning mt-3">
         <p>No neighborhood set. Please go to <a href="{% url 'profile'%}">Profile</a> to set a neighborhood.</p>
