@@ -39,7 +39,7 @@ def signup(request):
 
                 #create a Profile object for the new user
                 user_model = User.objects.get(username=username)
-                new_profile = Profile.objects.create(user=user_model, id_user=user_model.id)
+                new_profile = Profile.objects.create(user=user_model)
                 new_profile.save()
                 return redirect('signin')
         else:
@@ -59,7 +59,7 @@ def signin(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('/')
+            return redirect('feed')
         else:
             messages.info(request, 'Credentials Invalid')
             return redirect('signin')
@@ -79,7 +79,7 @@ def feed(request):
     posts = models.Post.objects.filter(hood=current_user.neighborhood)
 
     if request.method == 'POST':
-        new_post_form = NewPostForm(request.POST)
+        new_post_form = NewPostForm(request.POST,request.FILES)
         if new_post_form.is_valid():
             new_post_form.instance.user = current_user
             new_post_form.instance.hood = current_user.neighborhood
@@ -102,7 +102,7 @@ def businesses(request):
     current_user = request.user.profile
 
     if request.method == 'POST':
-        new_business_form = NewBusinessForm(request.POST)
+        new_business_form = NewBusinessForm(request.POST,request.FILES)
         if new_business_form.is_valid():
             new_business_form.instance.user = current_user
             new_business_form.instance.neighborhood = current_user.neighborhood
