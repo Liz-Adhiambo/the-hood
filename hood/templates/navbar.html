@@ -7,17 +7,18 @@
         <li><a href="" class="nav-link px-2 link-light"><span class='logo'>The-</span>Hood</a></li>
         <li><a href="{% url 'feed' %}" class="nav-link px-2 link-light">Feed</a></li>
         <li><a href="{% url 'neighborhood' %}" class="nav-link px-2 link-secondary">Neigborhood</a></li>
+        <li><a href="{% url 'businesses' %}" class="nav-link px-2 link-secondary">Businesses</a></li>
         
         </ul>
 
-        <form action="/search" method="POST">
+        <form action="{%url 'search'%}" method="POST">
             {% csrf_token %}
             <div class="left-side">
                 
 
                 
                 <!-- <div class="header_search"> -->
-                    <input class='form-control-sm' type="text" name="project" placeholder="Search ">&nbsp; &nbsp;
+                    <input class='form-control-sm' type="search" name="searched" placeholder="Search for businesses ">&nbsp; &nbsp;
                     <button class='btn' type="submit"><i class="fas fa-search"></i></button>
                 <!-- </div> -->
 
