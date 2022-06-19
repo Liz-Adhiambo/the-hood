@@ -744,8 +744,8 @@ h2 {
 
 .square{
   width: 800px;
-	height: 430px;
-	background: rgb(248, 237, 237);
+	height: 500px;
+	background: rgb(250, 249, 249);
   border-radius: 4px;
   box-shadow: 0px 20px 50px #9d9fa3;
   -webkit-transition: all 0.3s ease;
