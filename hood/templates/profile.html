@@ -51,11 +51,11 @@
                     data-bs-toggle="modal" data-bs-target="#newPostModal">Edit Profile</a> 
                     
                     
-                    <p class="border p-2 text-dark"><b>Change Neighborhood</b>
+                    
                         <form action="" method="post" class="d-inline">{% csrf_token %}
                             {% bootstrap_form change_neighborhood_form %}
-                        <button id="changeNeighborhood" class="btn btn-primary" type="submit">Submit</button></form>
-                        </p>
+                        <button id="changeNeighborhood" class="btn btn-outline-dark" type="submit">Change Neigborhood</button></form>
+                        
                 
                 </div>
             </div>
