@@ -19,7 +19,7 @@ class Neighborhood(models.Model):
     police_name = models.CharField(max_length=100, blank=True)
     police_number = models.CharField(max_length=20, blank=True)
     police_email = models.EmailField(blank=True)
-    hood_pic = CloudinaryField('images', default='image/upload/v1627343010/neighborhood1_cj2fyx.jpg')
+    hood_pic = CloudinaryField('images')
 
     @property
     def occupants_count(self):
