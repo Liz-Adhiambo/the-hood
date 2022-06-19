@@ -1,10 +1,11 @@
+from audioop import add
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from.models import Profile
+from.models import Business, Profile
 from . import models
 from django.contrib.auth.decorators import login_required
-from .forms import NewPostForm, NewBusinessForm, EditProfileForm, ChangeNeighborhoodForm
+from .forms import NewPostForm, NewBusinessForm, EditProfileForm, ChangeNeighborhoodForm,AddNeighborhoodForm
 # Create your views here.
 
 
@@ -144,6 +145,7 @@ def profile(request):
     if request.method == 'POST':
         edit_profile_form = EditProfileForm(request.POST, request.FILES, instance=request.user.profile)
         change_neighborhood_form = ChangeNeighborhoodForm(request.POST, request.FILES, instance=request.user.profile)
+        
         if edit_profile_form.is_valid():
             edit_profile_form.instance.user = request.user
             edit_profile_form.save()
@@ -154,15 +156,29 @@ def profile(request):
 
             redirect('profile')
 
+        
+
     else:
         edit_profile_form = EditProfileForm()
         change_neighborhood_form = ChangeNeighborhoodForm()
+        
 
     title = 'Profile'
     context = {
         'title': title,
         'edit_profile_form': edit_profile_form,
         'change_neighborhood_form':change_neighborhood_form,
+       
     }
 
     return render(request, 'profile.html', context)
+
+def search(request):
+    if request.method == "POST":
+        searched =request.POST['searched']
+        businesses=Business.objects.filter(name__contains=searched)
+
+        return render(request,'search_business.html',{'searched':searched,'businesses':businesses})
+
+    else:
+        return render(request,'search_business.html',{})
