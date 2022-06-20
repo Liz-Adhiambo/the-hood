@@ -172,9 +172,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # adding config
 
 cloudinary.config( 
-  cloud_name = config('CLOUD_NAME'), 
-  api_key = config('API_KEY'), 
-  api_secret = config('API_SECRET') 
+  cloud_name = "lizcloud2222", 
+  api_key = "544147764581919", 
+  api_secret = "YnZdlm7vJe7FYMZV3_kJgV5kT5k" 
 )
 
 
