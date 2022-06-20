@@ -1,3 +1,4 @@
 hood-venv/
 *pyc
-thehood_project/settings.py
+thehood_project/settingss.py
+.env
