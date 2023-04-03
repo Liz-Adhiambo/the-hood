@@ -91,7 +91,7 @@ MIDDLEWARE = [
 ]
 
 
-CSRF_TRUSTED_ORIGINS = ['the-hood-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://the-hood-production.up.railway.app']
 
 ROOT_URLCONF = 'thehood_project.urls'
 
