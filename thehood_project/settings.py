@@ -60,7 +60,7 @@ DATABASES = {
 # db_from_env = dj_database_url.config(conn_max_age=500)
 # DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['the-hood-production.up.railway.app']
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
@@ -91,7 +91,7 @@ MIDDLEWARE = [
 ]
 
 
-CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = ['the-hood-production.up.railway.app']
 
 ROOT_URLCONF = 'thehood_project.urls'
 
