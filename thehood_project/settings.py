@@ -53,7 +53,7 @@ DATABASE_URL='postgresql://postgres:OlJxf06jpRmpTOcrvEO0@containers-us-west-50.r
 # else:
 DATABASES = {
        'default': dj_database_url.config(
-           default=config('DATABASE_URL')
+           default=DATABASE_URL
        )
    }
 
