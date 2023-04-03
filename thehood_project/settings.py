@@ -33,7 +33,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
-DATABASE_URL='postgresql://postgres:Wr25A8ezBiZH06qu4mHf@containers-us-west-137.railway.app:8042/railway'
+DATABASE_URL='postgresql://postgres:OlJxf06jpRmpTOcrvEO0@containers-us-west-50.railway.app:5689/railway'
 
 
 # # development
